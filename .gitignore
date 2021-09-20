@@ -39,4 +39,4 @@ package-lock.json
 # IDE
 .idea
 
-.log
+*.log
