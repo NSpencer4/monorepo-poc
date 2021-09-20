@@ -9,7 +9,7 @@
     },
     "publish": {
       "message": "chore(release): publish",
-      "@nspencer4:registry": "https://npm.pkg.github.com"
+      "@Nspencer4:registry": "https://npm.pkg.github.com"
     }
   }
 }
