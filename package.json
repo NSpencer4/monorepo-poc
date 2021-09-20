@@ -17,7 +17,7 @@
     "lint.all": "lerna run lint",
     "lint.changed": "lerna run lint --since HEAD~1",
     "postinstall": "lerna bootstrap",
-    "publish": "lerna publish from-git",
+    "publish": "lerna publish from-git --no-verify-access --yes",
     "test.all": "lerna run test",
     "test.changed": "lerna run test --since HEAD~1",
     "version": "lerna version --conventional-commits",
