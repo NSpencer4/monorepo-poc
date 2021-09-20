@@ -14,14 +14,15 @@
     "build.all": "lerna run build",
     "build.changed": "lerna run build --since HEAD~1",
     "install.all.deps": "yarn install && lerna exec -- yarn install",
-    "install.changed.deps.ci": "lerna exec -- npm ci --cache .npm --prefer-offline",
+    "install.changed.deps.ci": "lerna exec -- yarn install --since HEAD~1",
     "lint.all": "lerna run lint",
     "lint.changed": "lerna run lint --since HEAD~1",
     "postinstall": "lerna bootstrap",
-    "publish": "lerna publish from-git --no-verify-access --yes",
+    "publish": "lerna publish from-git",
     "test.all": "lerna run test",
     "test.changed": "lerna run test --since HEAD~1",
     "version": "lerna version --force-git-tag --yes",
+    "prepare": "npx husky install",
     "check-pipeline-readiness": "yarn run audit.changed.unused && npm run audit.changed.deps && npm run lint.changed && npm run test.changed && npm run build.changed"
   },
   "dependencies": {
