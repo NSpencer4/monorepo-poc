@@ -1,7 +1,7 @@
 export const Picklist = (): JSX.Element => {
   return (
     <div data-testid="container">
-      Mock
+      Mock Text
     </div>
   );
 };
