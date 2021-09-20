@@ -1,0 +1,30 @@
+{
+  "name": "@nspencer4/components",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --build ./tsconfig.json",
+    "audit:deps": "npm audit --audit-level=moderate --registry=https://registry.npmjs.org --production",
+    "audit:unused": "npx depcheck . --config=../../.depcheckrc.json",
+    "lint": "eslint --max-warnings=0 --config ../../.eslintrc.json ./src --fix",
+    "test": "jest --config ./jest.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^8.5.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
+    "@testing-library/user-event": "^13.2.1",
+    "identity-obj-proxy": "^3.0.0"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ]
+}
