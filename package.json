@@ -1,5 +1,5 @@
 {
-  "name": "@nspencer4/monorepo-poc",
+  "name": "@NSpencer4/monorepo-poc",
   "version": "0.1.1",
   "license": "MIT",
   "pre-commit": [

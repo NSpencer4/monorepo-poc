@@ -1,5 +1,5 @@
 {
-  "name": "@nspencer4/components",
+  "name": "@NSpencer4/components",
   "version": "0.2.2",
   "license": "MIT",
   "main": "dist/index.js",
@@ -26,5 +26,8 @@
   "files": [
     "dist",
     "package.json"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://github.com/NSpencer4/monorepo-poc"
+  }
 }
