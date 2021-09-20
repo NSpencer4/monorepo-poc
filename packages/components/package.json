@@ -1,6 +1,7 @@
 {
-  "name": "@NSpencer4/components",
+  "name": "@nspencer4/components",
   "version": "0.6.0",
+  "repository": "git://github.com/nspencer4/monorepo-poc.git",
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
@@ -28,6 +29,6 @@
     "package.json"
   ],
   "publishConfig": {
-    "registry": "https://github.com/NSpencer4/monorepo-poc"
+    "registry": "https://npm.pkg.github.com"
   }
 }
