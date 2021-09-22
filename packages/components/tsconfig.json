@@ -10,9 +10,11 @@
   "exclude": [
     "node_modules",
     "dist",
-    "**/*test.ts",
+    "**/*.test.tsx",
+    "**/*.test.ts",
     "coverage",
     "jest.config.js",
-    "**/*spec.ts"
+    "**/*.spec.tsx",
+    "**/*.spec.ts"
   ]
 }
