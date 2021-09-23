@@ -10,5 +10,8 @@ This is a Monorepo POC using Lerna to build React app dependencies. See: https:/
 - [X] Setup CI pipeline GitHub Actions
 - [X] Setup Cloudflare to deploy the Storybook instance
 - [X] Display shared components using Storybook
-- [ ] Rebuild the picklist component using React as one of the shared components
+- [X] Rebuild the picklist component using React as one of the shared components
 - [ ] 100% unit test coverage
+- [ ] Convert styles from SCSS to Styled-Components
+- [ ] Make components themable
+- [ ] Create a doc for the picklist component
