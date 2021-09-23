@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "rootDirs": [
+    "**/src",
+    "**/stories"
+  ],
+  "include": [
+    ".storybook",
+    "**/src"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}
