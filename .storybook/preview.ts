@@ -1,3 +1,5 @@
+import '!style-loader!css-loader!sass-loader!../styles/global.scss';
+
 const customViewports = {
   mobile: {
     name: 'mobile',
