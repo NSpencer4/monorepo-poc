@@ -35,5 +35,5 @@ Default.args = {
     { id: 'Claritin', name: '$4.99' },
     { id: 'Flonase', name: '$23.38' }
   ],
-  selectedItemsCallback: () => console.log('called'),
+  selectedItemsCallback: () => '',
 };

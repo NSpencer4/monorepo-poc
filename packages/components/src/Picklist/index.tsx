@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import cn from 'classnames';
 import { PicklistData, PicklistProps, PicklistVariant } from './Picklist.types';
 import { PicklistConstants } from './Picklist.constants';
@@ -176,15 +176,14 @@ export const Picklist: React.FC<PicklistProps> = ({
                     <div className="row table-row">
                       <div className="col-md-10 col-sm-8 col-8 row-text">
                     <span className="selected-text">
-                      <strong>{selectedItem.id}</strong>
-                      {selectedItem.name}
+                      <strong>{selectedItem.id}</strong> {selectedItem.name}
                     </span>
                       </div>
                       <div className="col-md-2 col-sm-4 col-4 action-container">
-                        <span className="cta remove-action"
+                        <button className="cta remove-action"
                               onClick={() => remove(selectedItem.id)}>
                           {removeOptionText}
-                        </span>
+                        </button>
                       </div>
                     </div>
                   );

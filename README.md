@@ -1,6 +1,12 @@
 # Monorepo POC
 This is a Monorepo POC using Lerna to build React app dependencies. See: https://storybook.chasespencer.dev for an interactive view of these components.
 
+## Versioning
+This project uses Lerna to detect changes to packages and apply versions based on commit history. We use Conventional Commits to determine this see: https://www.conventionalcommits.org. 
+
+## Deployment
+When a new version of a package is ready it is deployed to the GitHub registry for consumer applications to use. It also deploys to the Storybook instance via Cloudflare Pages see: https://storybook.chasespencer.dev.
+
 ## TODO List
 - [x] Install eslint with strict rule sets
 - [x] Install Storybook for displaying components
@@ -12,7 +18,8 @@ This is a Monorepo POC using Lerna to build React app dependencies. See: https:/
 - [X] Display shared components using Storybook
 - [X] Rebuild the picklist component using React as one of the shared components
 - [ ] 100% unit test coverage
-- [ ] Convert styles from SCSS to Styled-Components
 - [ ] Make components theme-able
 - [ ] Make isolate component styles using modules
 - [ ] Create a doc for the picklist component
+- [ ] Use FakerJS to harden tests
+- [ ] Convert styles from SCSS to Styled-Components or Setup webpack for preprocessing/bundling
