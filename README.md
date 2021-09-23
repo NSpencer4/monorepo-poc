@@ -17,6 +17,7 @@ When a new version of a package is ready it is deployed to the GitHub registry f
 - [X] Setup Cloudflare to deploy the Storybook instance
 - [X] Display shared components using Storybook
 - [X] Rebuild the picklist component using React as one of the shared components
+- [ ] Setup test coverage to display in Storybook
 - [ ] 100% unit test coverage
 - [ ] Make components theme-able
 - [ ] Make isolate component styles using modules

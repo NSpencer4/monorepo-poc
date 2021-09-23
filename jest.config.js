@@ -30,6 +30,10 @@ module.exports = {
     roots: [
         "<rootDir>/packages"
     ],
+    moduleNameMapper: {
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+        "^react$": "<rootDir>/node_modules/react/index.js",
+    },
     testMatch: [
         "**/?(*.)+(spec|test).+(ts|js|tsx|jsx)"
     ],

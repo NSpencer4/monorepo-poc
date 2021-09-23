@@ -13,7 +13,7 @@ export const Picklist: React.FC<PicklistProps> = ({
   selectablesContainerHeaderText = PicklistConstants.SELECTABLES_HEADER_TEXT,
   selectedContainerHeaderText = PicklistConstants.SELECTED_HEADER_TEXT,
   selectedContainerPlaceholderText = PicklistConstants.SELECTED_PLACEHOLDER_TEXT,
-  sortList = true,
+  sortList = false,
   filterTerm = '',
   noResultsForFilterTermMessage = PicklistConstants.NO_RESULTS_FILTER_MESSAGE,
   picklistItems,
@@ -76,7 +76,7 @@ export const Picklist: React.FC<PicklistProps> = ({
   };
 
   const removeAll = () => {
-    setSelectableItems([...selectedItems, ...selectableItems]);
+    setSelectableItems([...selectableItems, ...selectedItems]);
     setSelectedItems([]);
     notifyParentSelections();
   };
@@ -90,7 +90,7 @@ export const Picklist: React.FC<PicklistProps> = ({
   };
 
   return (
-    <div id={id} className={cn(variant, className)}>
+    <div data-testid="picklist-container" id={id} className={cn(variant, className)}>
       <section data-testid="container-row" id="container-row" className="row">
         <section className="col-md-5 selectables-col">
           <section data-testid="selectables-container-heading-row" id="selectables-container-heading-row"
@@ -101,6 +101,7 @@ export const Picklist: React.FC<PicklistProps> = ({
             <div id="selectables-container-action-col"
                  className="col-md-5 col-sm-4 col-5">
               <button id="select-all-text"
+                      data-testid="select-all-action"
                       className="cta"
                       onClick={() => selectAll()}
                       disabled={selectableItems.length === 0}>
@@ -154,6 +155,7 @@ export const Picklist: React.FC<PicklistProps> = ({
             </section>
             <section id="selected-container-action-col" className="col-md-5 col-sm-5 col-6">
               <button id="remove-all-text"
+                      data-testid="remove-all-action"
                       className="cta"
                       disabled={selectedItems.length === 0}
                       onClick={() => removeAll()}>
