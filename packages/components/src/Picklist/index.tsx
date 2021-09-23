@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import cn from 'classnames';
 import { PicklistData, PicklistProps, PicklistVariant } from './Picklist.types';
 import { PicklistConstants } from './Picklist.constants';
@@ -10,12 +10,12 @@ export const Picklist: React.FC<PicklistProps> = ({
   variant = PicklistVariant.Primary,
   className,
   id,
-  selectablesContainerHeaderText,
-  selectedContainerHeaderText,
-  selectedContainerPlaceholderText,
-  sortList,
+  selectablesContainerHeaderText = PicklistConstants.SELECTABLES_HEADER_TEXT,
+  selectedContainerHeaderText = PicklistConstants.SELECTED_HEADER_TEXT,
+  selectedContainerPlaceholderText = PicklistConstants.SELECTED_PLACEHOLDER_TEXT,
+  sortList = true,
   filterTerm = '',
-  noResultsForFilterTermMessage,
+  noResultsForFilterTermMessage = PicklistConstants.NO_RESULTS_FILTER_MESSAGE,
   picklistItems,
   selectedItemsCallback
 }): JSX.Element => {
@@ -31,9 +31,12 @@ export const Picklist: React.FC<PicklistProps> = ({
     setSelectedItems(_.sortBy(selectedItems, 'id'));
   };
 
-  if (sortList) {
-    sortItems();
-  }
+  useEffect(() => {
+    if (sortList) {
+      sortItems();
+    }
+  }, [sortList]);
+
 
   const notifyParentSelections = () => {
     if (sortList) {

@@ -1,13 +1,10 @@
 // @ts-ignore
 module.exports = {
   typescript: {
-    shouldExtractLiteralValuesFromEnum: true,
+    check: false,
+    checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      compilerOptions: {
-        allowSyntheticDefaultImports: false,
-        esModuleInterop: false,
-      },
       shouldExtractLiteralValuesFromEnum: true,
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
@@ -18,6 +15,7 @@ module.exports = {
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-jest',
+    '@storybook/addon-essentials',
     'storybook-addon-themes',
     '@storybook/preset-scss',
   ],

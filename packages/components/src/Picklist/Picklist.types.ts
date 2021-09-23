@@ -10,19 +10,19 @@ export interface PicklistData {
 
 export interface PicklistProps {
   /** Sets the theme variation */
-  variant?: PicklistVariant;
+  variant: PicklistVariant;
   /** Sets the id attribute value */
   id?: string;
   /** Sets the class attribute value */
   className?: string;
   /** Sets the "selectables" container header text */
-  selectablesContainerHeaderText?: string;
+  selectablesContainerHeaderText: string;
   /** Sets the "selected" container header text */
-  selectedContainerHeaderText?: string;
+  selectedContainerHeaderText: string;
   /** Sets the "selected" container placeholder text */
-  selectedContainerPlaceholderText?: string;
+  selectedContainerPlaceholderText: string;
   /** If true, the list will be sorted in ascending order */
-  sortList?: boolean;
+  sortList: boolean;
   /** If set, this will filter the results if a result contains the filter term text */
   filterTerm?: string;
   /** Set the no results message that displays if there are no results */
