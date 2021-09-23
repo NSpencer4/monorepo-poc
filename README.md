@@ -13,5 +13,6 @@ This is a Monorepo POC using Lerna to build React app dependencies. See: https:/
 - [X] Rebuild the picklist component using React as one of the shared components
 - [ ] 100% unit test coverage
 - [ ] Convert styles from SCSS to Styled-Components
-- [ ] Make components themable
+- [ ] Make components theme-able
+- [ ] Make isolate component styles using modules
 - [ ] Create a doc for the picklist component
