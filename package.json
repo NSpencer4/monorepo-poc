@@ -20,8 +20,9 @@
     "publish": "lerna publish from-git",
     "test.all": "lerna run test",
     "test.changed": "lerna run test --since HEAD~1",
-    "storybook.start": "start-storybook -p 5555 --no-manager-cache",
-    "storybook.build": "build-storybook --debug-webpack",
+    "test.output": "lerna run test.output",
+    "storybook.start": "(npm run test.output || true) && start-storybook -p 5555 --no-manager-cache",
+    "storybook.build": "(npm run test.output || true) && build-storybook --debug-webpack",
     "version": "lerna version --conventional-commits",
     "prepare": "npx husky install",
     "check-pipeline-readiness": "yarn run audit.changed.unused && npm run audit.changed.deps && npm run lint.changed && npm run test.changed && npm run build.changed"

@@ -1,4 +1,9 @@
 import '!style-loader!css-loader!sass-loader!../styles/global.scss';
+import results from './.coverage.json';
+import { withTests } from '@storybook/addon-jest';
+import { addDecorator } from '@storybook/react';
+
+addDecorator(withTests({results}));
 
 const customViewports = {
   mobile: {
