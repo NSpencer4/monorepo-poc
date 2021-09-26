@@ -25,6 +25,14 @@ describe('<Picklist />', () => {
     selectedItemsCallback: () => '',
   };
 
+  const sortedPicklistData: PicklistData[] = [
+    { id: 'Advil', name: '$5.49' },
+    { id: 'Claritin', name: '$4.99' },
+    { id: 'Flonase', name: '$23.38' },
+    { id: 'Motrin', name: '$7.00' },
+    { id: 'Tylenol Cold + Flu', name: '$6.99' }
+  ];
+
   beforeEach(() => {
     render(<Picklist {...mockProps} />);
   });
@@ -148,14 +156,6 @@ describe('<Picklist />', () => {
       });
   });
   describe('sorting', () => {
-    const sortedPicklistData: PicklistData[] = [
-      { id: 'Advil', name: '$5.49' },
-      { id: 'Claritin', name: '$4.99' },
-      { id: 'Flonase', name: '$23.38' },
-      { id: 'Motrin', name: '$7.00' },
-      { id: 'Tylenol Cold + Flu', name: '$6.99' }
-    ];
-
     beforeEach(() => {
       const sortedProps = {
         ...mockProps,
@@ -183,12 +183,12 @@ describe('<Picklist />', () => {
   });
   describe('filter items', () => {
     beforeEach(() => {
-      const sortedProps = {
+      const filteredProps = {
         ...mockProps,
         filterTerm: 'f'
       };
       cleanup();
-      render(<Picklist {...sortedProps} />);
+      render(<Picklist {...filteredProps} />);
     });
     it('only shows items that contain the filter term passed in the selectables container', () => {
       const el: HTMLElement = screen.getByTestId('selectables-container');
@@ -219,5 +219,140 @@ describe('<Picklist />', () => {
       expect(selectedEls[0].textContent).toBe(`${mockProps.picklistItems[1].id} ${mockProps.picklistItems[1].name}`);
     });
   });
-});
+  describe('notifyParentSelections', () => {
+    it('emits the new selected data to the parent unsorted', () => {
+      const selectedItemsCallback = jest.fn();
+      const unsortedProps = {
+        ...mockProps,
+        selectedItemsCallback
+      };
+      cleanup();
+      render(<Picklist {...unsortedProps} />);
 
+      // Populate the selected container
+      fireEvent.click(screen.getByTestId('select-all-action'));
+
+      expect(selectedItemsCallback).toHaveBeenCalledWith(mockProps.picklistItems);
+    });
+    it('should notify the parent a sorted list of selected data and ' +
+       'should internally sort the selectables', () => {
+      const sortedProps = {
+        ...mockProps,
+        selectedItemsCallback: jest.fn(),
+        sortList: true
+      };
+      cleanup();
+      render(<Picklist {...sortedProps} />);
+
+      // Populate the selected container
+      fireEvent.click(screen.getByTestId('select-all-action'));
+
+      expect(sortedProps.selectedItemsCallback).toHaveBeenCalledWith(sortedPicklistData);
+    });
+  });
+  describe('template', () => {
+    describe('static rendering', () => {
+      it('renders the selectablesContainerHeaderText', () => {
+        const el: HTMLElement = screen.getByTestId('selectables-header');
+        expect(el.textContent).toBe(PicklistConstants.SELECTABLES_HEADER_TEXT);
+      });
+      it('renders the selectedContainerHeaderText', () => {
+        const el: HTMLElement = screen.getByTestId('selected-header');
+        expect(el.textContent).toBe(PicklistConstants.SELECTED_HEADER_TEXT);
+      });
+      it('renders the default in variant', () => {
+        const el: HTMLElement = screen.getByTestId('picklist-container');
+        expect(el).toHaveClass('picklist-primary');
+      });
+      it('renders the passed in variant', () => {
+        const testProps = {
+          ...mockProps,
+          variant: PicklistVariant.Secondary
+        };
+        cleanup();
+        render(<Picklist {...testProps} />);
+        const el: HTMLElement = screen.getByTestId('picklist-container');
+        expect(el).toHaveClass('picklist-secondary');
+      });
+      it('renders the no-results-text when there are selectables but no results for the filter term', () => {
+        const testProps = {
+          ...mockProps,
+          filterTerm: 'Not In List'
+        };
+        cleanup();
+        render(<Picklist {...testProps} />);
+
+        const el: HTMLElement = screen.getByTestId('no-results-text');
+        expect(el.textContent).toBe(PicklistConstants.NO_RESULTS_FILTER_MESSAGE);
+      });
+      it('hides the no-results-text when there is no filter criteria and no selectables', () => {
+        const el: HTMLElement = screen.getByTestId('selectables-container-row');
+        expect(el.querySelector('#no-results-text')).toBeNull();
+      });
+      it('hides the no-results-text when there a no results message is not passed', () => {
+        const testProps = {
+          ...mockProps,
+          noResultsForFilterTermMessage: undefined,
+          filterTerm: 'Not In List'
+        };
+        cleanup();
+        render(<Picklist {...testProps} />);
+
+        const el: HTMLElement = screen.getByTestId('no-results-text');
+        expect(el.querySelector('#no-results-text')).toBeNull();
+      });
+      it('renders the selectedContainerPlaceholderText', () => {
+        const el: HTMLElement = screen.getByTestId('placeholder-text');
+        expect(el.textContent).toBe(PicklistConstants.SELECTED_PLACEHOLDER_TEXT);
+      });
+      it('hides the selectedContainerPlaceholderText', () => {
+        // Populate the selected container
+        fireEvent.click(screen.getByTestId('select-all-action'));
+        const el: HTMLElement = screen.getByTestId('selected-container-row');
+        expect(el.querySelector('#no-results-text')).toBeNull();
+      });
+    });
+    describe('picklist functionality and rendering', () => {
+      it('renders the select-all-text cta', () => {
+        const el: HTMLElement = screen.getByTestId('select-all-action');
+        expect(el.textContent).toBe(PicklistConstants.SELECT_ALL_OPTION);
+      });
+      it('disables the select-all-text cta when there are no selectables', () => {
+        // Populate the selected container
+        fireEvent.click(screen.getByTestId('select-all-action'));
+        const el: HTMLElement = screen.getByTestId('select-all-action');
+        expect(el).toBeDisabled();
+      });
+      it('enables the select-all-text cta when there are selectables', () => {
+        const el: HTMLElement = screen.getByTestId('select-all-action');
+        expect(el).toBeEnabled();
+      });
+      it('renders the remove-all-text cta', () => {
+        const el: HTMLElement = screen.getByTestId('remove-all-action');
+        expect(el.textContent).toBe(PicklistConstants.REMOVE_ALL_OPTION);
+      });
+      it('enables the remove-all-text cta when there are no selectables', () => {
+        // Populate the selected container
+        fireEvent.click(screen.getByTestId('select-all-action'));
+        const el: HTMLElement = screen.getByTestId('remove-all-action');
+        expect(el).not.toBeDisabled();
+      });
+      it('disables the remove-all-text cta when there are none are selected', () => {
+        const el: HTMLElement = screen.getByTestId('remove-all-action');
+        expect(el).toBeDisabled();
+      });
+      it('renders the select-action ctas', () => {
+        const selectablesContainer: HTMLElement = screen.getByTestId('selectables-container');
+        const selectBtns: NodeListOf<HTMLSpanElement> = selectablesContainer.querySelectorAll('.select-action');
+        expect(selectBtns.length).toBe(mockProps.picklistItems.length);
+      });
+      it('renders the remove-action ctas', () => {
+        // Populate the selected container
+        fireEvent.click(screen.getByTestId('select-all-action'));
+        const selectedContainer: HTMLElement = screen.getByTestId('selected-container');
+        const removeBtns: NodeListOf<HTMLSpanElement> = selectedContainer.querySelectorAll('.remove-action');
+        expect(removeBtns.length).toBe(mockProps.picklistItems.length);
+      });
+    });
+  });
+});

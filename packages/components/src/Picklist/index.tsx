@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useMemo } from 'react';
 import cn from 'classnames';
 import { PicklistData, PicklistProps, PicklistVariant } from './Picklist.types';
 import { PicklistConstants } from './Picklist.constants';
@@ -19,8 +19,8 @@ export const Picklist: React.FC<PicklistProps> = ({
   picklistItems,
   selectedItemsCallback
 }): JSX.Element => {
-  const [ selectedItems, setSelectedItems ] = useState<PicklistData[]>([]);
-  const [ selectableItems, setSelectableItems ] = useState<PicklistData[]>(picklistItems);
+  const [selectedItems, setSelectedItems] = useState<PicklistData[]>([]);
+  const [selectableItems, setSelectableItems] = useState<PicklistData[]>(picklistItems);
   const selectOptionText: string = PicklistConstants.SELECT_OPTION;
   const selectAllOptionText: string = PicklistConstants.SELECT_ALL_OPTION;
   const removeOptionText: string = PicklistConstants.REMOVE_OPTION;
@@ -31,19 +31,14 @@ export const Picklist: React.FC<PicklistProps> = ({
     setSelectedItems(_.sortBy(selectedItems, 'id'));
   };
 
-  useEffect(() => {
+  useMemo(() => {
     if (sortList) {
       sortItems();
     }
   }, [sortList]);
 
-
-  const notifyParentSelections = () => {
-    if (sortList) {
-      sortItems();
-    }
-    selectedItemsCallback(selectedItems);
-  };
+  // notifyParentSelections
+  useMemo(() => selectedItemsCallback(selectedItems), [selectedItems]);
 
   const select = (selectedId: string) => {
     setSelectableItems(
@@ -54,7 +49,6 @@ export const Picklist: React.FC<PicklistProps> = ({
         return item.id !== selectedId;
       })
     );
-    notifyParentSelections();
   };
 
   const remove = (removedId: string) => {
@@ -66,19 +60,16 @@ export const Picklist: React.FC<PicklistProps> = ({
         return item.id !== removedId;
       })
     );
-    notifyParentSelections();
   };
 
   const selectAll = () => {
     setSelectedItems([...selectedItems, ...selectableItems]);
     setSelectableItems([]);
-    notifyParentSelections();
   };
 
   const removeAll = () => {
     setSelectableItems([...selectableItems, ...selectedItems]);
     setSelectedItems([]);
-    notifyParentSelections();
   };
 
   const filterList = (vals: PicklistData[], filterStr: string): PicklistData[] => {
@@ -91,17 +82,17 @@ export const Picklist: React.FC<PicklistProps> = ({
 
   return (
     <div data-testid="picklist-container" id={id} className={cn(variant, className)}>
-      <section data-testid="container-row" id="container-row" className="row">
+      <section id="container-row" data-testid="container-row" className="row">
         <section className="col-md-5 selectables-col">
-          <section data-testid="selectables-container-heading-row" id="selectables-container-heading-row"
+          <section id="selectables-container-heading-row" data-testid="selectables-container-heading-row"
                    className="row">
-            <section id="selectables-container-title-col" className="col-md-7 col-sm-8 col-7">
-              <span id="selectables-header">{selectablesContainerHeaderText}</span>
+            <section id="selectables-container-title-col" data-testid="selectables-container-title-col"
+                     className="col-md-7 col-sm-8 col-7">
+              <span id="selectables-header" data-testid="selectables-header">{selectablesContainerHeaderText}</span>
             </section>
-            <div id="selectables-container-action-col"
+            <div id="selectables-container-action-col" data-testid="selectables-container-action-col"
                  className="col-md-5 col-sm-4 col-5">
-              <button id="select-all-text"
-                      data-testid="select-all-action"
+              <button id="select-all-text" data-testid="select-all-action"
                       className="cta"
                       onClick={() => selectAll()}
                       disabled={selectableItems.length === 0}>
@@ -110,8 +101,8 @@ export const Picklist: React.FC<PicklistProps> = ({
             </div>
           </section>
 
-          <section data-testid="selectables-container-row" id="selectables-container-row" className="row">
-            <section data-testid="selectables-container" id="selectables-container" className="data-container">
+          <section id="selectables-container-row" data-testid="selectables-container-row" className="row">
+            <section id="selectables-container" data-testid="selectables-container" className="data-container">
               {
                 (filterList(selectableItems, filterTerm).length <= 0
                   && selectableItems.length > 0
@@ -119,7 +110,7 @@ export const Picklist: React.FC<PicklistProps> = ({
                 ) &&
                 (<div className="row">
                   <div className="col-md-12 col-sm-12 col-12 placeholder-col">
-                    <span id="no-results-text">
+                    <span id="no-results-text" data-testid="no-results-text">
                   {noResultsForFilterTermMessage}
                     </span>
                   </div>
@@ -149,13 +140,14 @@ export const Picklist: React.FC<PicklistProps> = ({
         </section>
 
         <section className="col-md-5 col-md-offset-1 selected-container-col">
-          <section data-testid="selected-container-heading-row" id="selected-container-heading-row" className="row">
-            <section id="selected-container-title-col" className="col-md-7 col-sm-7 col-6">
-              <span id="selected-header">{selectedContainerHeaderText}</span>
+          <section id="selected-container-heading-row" data-testid="selected-container-heading-row" className="row">
+            <section id="selected-container-title-col" data-testid="selected-container-title-col"
+                     className="col-md-7 col-sm-7 col-6">
+              <span id="selected-header" data-testid="selected-header">{selectedContainerHeaderText}</span>
             </section>
-            <section id="selected-container-action-col" className="col-md-5 col-sm-5 col-6">
-              <button id="remove-all-text"
-                      data-testid="remove-all-action"
+            <section id="selected-container-action-col" data-testid="selected-container-action-col"
+                     className="col-md-5 col-sm-5 col-6">
+              <button id="remove-all-text" data-testid="remove-all-action"
                       className="cta"
                       disabled={selectedItems.length === 0}
                       onClick={() => removeAll()}>
@@ -164,12 +156,12 @@ export const Picklist: React.FC<PicklistProps> = ({
             </section>
           </section>
 
-          <section data-testid="selected-container-row" id="selected-container-row" className="row">
-            <section data-testid="selected-container" id="selected-container" className="data-container">
+          <section id="selected-container-row" data-testid="selected-container-row" className="row">
+            <section id="selected-container" data-testid="selected-container" className="data-container">
               {selectedItems?.length <= 0 && (
                 <div className="row">
                   <div className="col-md-12 col-sm-12 col-12 placeholder-col">
-                    <span id="placeholder-text">
+                    <span id="placeholder-text" data-testid="placeholder-text">
                     {selectedContainerPlaceholderText}
                     </span>
                   </div>
@@ -186,7 +178,7 @@ export const Picklist: React.FC<PicklistProps> = ({
                       </div>
                       <div className="col-md-2 col-sm-4 col-4 action-container">
                         <button className="cta remove-action"
-                              onClick={() => remove(selectedItem.id)}>
+                                onClick={() => remove(selectedItem.id)}>
                           {removeOptionText}
                         </button>
                       </div>
