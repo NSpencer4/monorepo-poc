@@ -29,16 +29,15 @@ export const Picklist: React.FC<PicklistProps> = ({
   const sortItems = () => {
     setSelectableItems(_.sortBy(selectableItems, 'id'));
     setSelectedItems(_.sortBy(selectedItems, 'id'));
+    return [...selectedItems, ...selectableItems];
   };
 
   useMemo(() => {
-    if (sortList) {
-      sortItems();
-    }
+    if (sortList) sortItems();
   }, [sortList]);
 
   // notifyParentSelections
-  useMemo(() => selectedItemsCallback(selectedItems), [selectedItems]);
+  useMemo(() => selectedItemsCallback(selectedItems), [selectedItems, selectedItemsCallback]);
 
   const select = (selectedId: string) => {
     setSelectableItems(

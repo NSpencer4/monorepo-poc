@@ -7,7 +7,7 @@
     "build": "tsc --build ./tsconfig.build.json",
     "audit.deps": "yarn audit --audit-level=moderate --registry=https://registry.npmjs.org --production",
     "audit.unused": "npx depcheck . --config=../../.depcheckrc.json",
-    "lint": "eslint --max-warnings=0 --config ../../.eslintrc.json ./src --fix",
+    "lint": "eslint --max-warnings=10 --config ../../.eslintrc.json ./src --fix",
     "test": "jest --config ./jest.config.js",
     "test.output": "jest --json --outputFile=../../.storybook/.coverage.json"
   },

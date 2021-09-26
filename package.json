@@ -22,7 +22,7 @@
     "test.all": "lerna run test",
     "test.changed": "lerna run test --since HEAD~1",
     "test.output": "lerna run test.output",
-    "storybook.start": "(npm run test.output || true) && start-storybook -p 5555 --no-manager-cache",
+    "storybook.start": "start-storybook -p 5555 --no-manager-cache",
     "storybook.build": "(npm run test.output || true) && build-storybook --debug-webpack",
     "version": "lerna version --conventional-commits",
     "prepare": "npx husky install",
