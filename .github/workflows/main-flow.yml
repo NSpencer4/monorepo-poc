@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          yarn install
+          npm i --package-lock-only
           yarn run audit.all.unused
           yarn run audit.all.deps
           yarn run lint.all
