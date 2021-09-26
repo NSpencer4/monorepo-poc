@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          yarn run install.all.deps
+          yarn run install.all.deps.ci
           yarn run audit.all.unused
           yarn run audit.all.deps
           yarn run lint.all
