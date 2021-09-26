@@ -13,7 +13,7 @@
     "build.all": "lerna run build",
     "build.changed": "lerna run build --since HEAD~1",
     "install.all.deps": "yarn install && lerna bootstrap && lerna exec -- yarn install",
-    "install.all.deps.ci": "yarn install && lerna bootstrap --ci && lerna exec -- yarn install",
+    "install.all.deps.ci": "yarn install && lerna exec -- yarn install",
     "install.changed.deps.ci": "lerna exec -- yarn install --since HEAD~1 && lerna bootstrap",
     "lint.all": "lerna run lint",
     "lint.changed": "lerna run lint --since HEAD~1",
