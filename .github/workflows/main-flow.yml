@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          npm run ci
+          npm ci
           lerna bootstrap --ci
           yarn run audit.all.unused
           yarn run audit.all.deps
