@@ -16,7 +16,7 @@
       "dom.iterable",
       "esnext"
     ],
-    "module": "commonjs",
+    "module": "es6",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,

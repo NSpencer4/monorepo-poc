@@ -8,7 +8,7 @@
     "./src/**/*"
   ],
   "exclude": [
-    "webpack.config.ts",
+    "webpack.config.js",
     "node_modules",
     "dist",
     "**/*.test.tsx",

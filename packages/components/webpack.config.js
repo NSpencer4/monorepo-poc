@@ -1,17 +1,15 @@
-import { Configuration } from 'webpack';
-
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const cwp = require('clean-webpack-plugin');
 
-const config: Configuration = {
+module.exports = {
   mode: 'production',
   entry: './src/index.ts',
   target: 'web',
   output: {
-    filename: "index.js",
-    path: path.join(__dirname, "dist/"),
-    publicPath: "/"
+    filename: 'index.js',
+    path: path.join(__dirname, 'dist/'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -19,13 +17,13 @@ const config: Configuration = {
         test: /\.tsx?$/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
               cacheDirectory: true,
-              presets: [["@babel/preset-env", {targets: {node: "8"}}]]
+              presets: [['@babel/preset-env', { targets: { node: '8' } }]]
             }
           },
-          "ts-loader",
+          'ts-loader',
         ]
       },
       {
@@ -39,10 +37,8 @@ const config: Configuration = {
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
-                                     async: false,
-                                   }),
+      async: false,
+    }),
     new cwp.CleanWebpackPlugin(),
   ],
 };
-
-export default config;
