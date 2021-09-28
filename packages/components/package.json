@@ -57,7 +57,8 @@
     "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "classnames": "^2.3.1"
   },
   "browserslist": {
     "production": [
