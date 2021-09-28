@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.6.1...@nspencer4/components@0.7.0) (2021-09-28)
+
+
+### Bug Fixes
+
+* fixed lint warning ([1c8d6f7](https://github.com/nspencer4/monorepo-poc/commit/1c8d6f7c2b4c3edabda27e0a4fa9d8387ac4929f))
+* fixed rendering errors when the sort prop was changed ([00337f2](https://github.com/nspencer4/monorepo-poc/commit/00337f2d749ec58980153218b8dd541d6603b053))
+
+
+### Features
+
+* converted the Picklist component from Angular to React ([0acbc1d](https://github.com/nspencer4/monorepo-poc/commit/0acbc1d6105f50faf20c8b0ef5d94abf5f362641))
+* init storybook and storybook addons to show the components in the shared components package ([3b3e29b](https://github.com/nspencer4/monorepo-poc/commit/3b3e29b7e9c7ecfabdaf81ebdd33696710598e14))
+* init storybook for the Picklist component ([886e822](https://github.com/nspencer4/monorepo-poc/commit/886e82251aadaf2ad4d28f48f4b0875cba51ffbb))
+
+
+
+
+
 ## [0.6.1](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.6.0...@nspencer4/components@0.6.1) (2021-09-20)
 
 **Note:** Version bump only for package @nspencer4/components
