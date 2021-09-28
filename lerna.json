@@ -9,7 +9,9 @@
     },
     "publish": {
       "message": "chore(release): publish",
-      "@Nspencer4:registry": "https://npm.pkg.github.com"
+      "@Nspencer4:registry": "https://npm.pkg.github.com",
+      "npmClient": "yarn",
+      "verifyAccess": false
     }
   }
 }
