@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.7.1...@nspencer4/components@0.8.0) (2021-09-28)
+
+
+### Features
+
+* setup webpack to bundle the package with styles ([5475fd6](https://github.com/nspencer4/monorepo-poc/commit/5475fd673845d8274ec256460fcdba9b89a6869e))
+
+
+
+
+
 ## [0.7.1](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.7.0...@nspencer4/components@0.7.1) (2021-09-28)
 
 **Note:** Version bump only for package @nspencer4/components
