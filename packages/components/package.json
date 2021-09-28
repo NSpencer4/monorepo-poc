@@ -4,7 +4,7 @@
   "repository": "git://github.com/nspencer4/monorepo-poc.git",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build ./tsconfig.build.json",
+    "build": "webpack --config webpack.config.ts --mode production",
     "audit.deps": "yarn audit --audit-level=moderate --registry=https://registry.npmjs.org --production",
     "audit.unused": "npx depcheck . --config=../../.depcheckrc.json",
     "lint": "eslint --max-warnings=10 --config ../../.eslintrc.json ./src --fix",
@@ -21,13 +21,30 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@babel/runtime": "^7.15.4",
     "@testing-library/dom": "^8.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.0",
     "@testing-library/user-event": "^13.2.1",
+    "@types/fork-ts-checker-webpack-plugin": "^0.4.5",
     "@types/lodash": "^4.14.173",
+    "@types/webpack": "^5.28.0",
+    "babel-loader": "^8.2.2",
     "classnames": "^2.3.1",
-    "identity-obj-proxy": "^3.0.0"
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.3.0",
+    "fork-ts-checker-webpack-plugin": "^6.3.3",
+    "identity-obj-proxy": "^3.0.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.2.1",
+    "webpack": "^5.55.0",
+    "webpack-cli": "^4.8.0"
   },
   "files": [
     "dist",
@@ -38,5 +55,17 @@
   },
   "peerDependencies": {
     "lodash": "^4.17.21"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

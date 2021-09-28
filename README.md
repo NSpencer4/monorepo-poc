@@ -21,6 +21,6 @@ When a new version of a package is ready it is deployed to the GitHub registry f
 - [X] Full unit test coverage
 - [ ] Make components theme-able
 - [ ] Make isolate component styles using modules
-- [ ] Create a doc for the picklist component
+- [ ] Create a readme for the picklist component
 - [ ] Use FakerJS to harden tests
-- [ ] Convert styles from SCSS to Styled-Components or Setup webpack for preprocessing/bundling
+- [X] Convert styles from SCSS to Styled-Components or Setup webpack for preprocessing/bundling
