@@ -7,7 +7,7 @@ const cwp = require('clean-webpack-plugin');
 const config: Configuration = {
   mode: 'production',
   entry: './src/index.ts',
-  target: 'node',
+  target: 'web',
   output: {
     filename: "index.js",
     path: path.join(__dirname, "dist/"),
