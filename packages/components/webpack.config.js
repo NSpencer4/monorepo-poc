@@ -5,7 +5,6 @@ const cwp = require('clean-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: './src/index.ts',
-  target: 'web',
   output: {
     filename: 'index.js',
     path: path.join(__dirname, 'dist/'),
