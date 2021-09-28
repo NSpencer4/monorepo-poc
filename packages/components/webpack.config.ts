@@ -9,7 +9,7 @@ const config: Configuration = {
   entry: './src/index.ts',
   target: 'node',
   output: {
-    filename: "[name].js",
+    filename: "index.js",
     path: path.join(__dirname, "dist/"),
     publicPath: "/"
   },
