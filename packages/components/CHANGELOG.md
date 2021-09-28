@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.3](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.8.2...@nspencer4/components@0.8.3) (2021-09-28)
+
+
+### Bug Fixes
+
+* commit yarn lock ([03c2dc4](https://github.com/nspencer4/monorepo-poc/commit/03c2dc479daef1468183765dd02a1f425937dee1))
+* fixed dependencies that were causing errors in the bundles ([a4c9907](https://github.com/nspencer4/monorepo-poc/commit/a4c9907af6f5aa71a326c95d87bab3d627b2e1ff))
+
+
+
+
+
 ## [0.8.2](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.8.1...@nspencer4/components@0.8.2) (2021-09-28)
 
 
