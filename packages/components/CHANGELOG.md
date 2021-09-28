@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.8.1...@nspencer4/components@0.8.2) (2021-09-28)
+
+
+### Bug Fixes
+
+* target web instead of node ([4fcd402](https://github.com/nspencer4/monorepo-poc/commit/4fcd402ff10138c253a4af1c2be8b08a1d00f1d5))
+
+
+
+
+
 ## [0.8.1](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.8.0...@nspencer4/components@0.8.1) (2021-09-28)
 
 
