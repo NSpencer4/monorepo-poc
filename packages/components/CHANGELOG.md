@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.5](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.8.4...@nspencer4/components@0.8.5) (2021-09-28)
+
+
+### Bug Fixes
+
+* fixed tsconfig scan issue for test files ([996eb35](https://github.com/nspencer4/monorepo-poc/commit/996eb355ce8a76e767c343c8403f3a6c89a17ad6))
+
+
+
+
+
 ## [0.8.4](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.8.3...@nspencer4/components@0.8.4) (2021-09-28)
 
 
