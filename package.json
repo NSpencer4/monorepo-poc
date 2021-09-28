@@ -24,6 +24,7 @@
     "test.output": "lerna run test.output",
     "storybook.start": "start-storybook -p 5555 --no-manager-cache",
     "storybook.build": "(npm run test.output || true) && build-storybook --debug-webpack",
+    "storybook.build.deploy": "yarn bootstrap && yarn install.changed.deps.ci && (npm run test.output || true) && build-storybook --debug-webpack",
     "version": "lerna version --conventional-commits",
     "prepare": "npx husky install",
     "check-pipeline-readiness": "yarn run audit.changed.unused && npm run audit.changed.deps && npm run lint.changed && npm run test.changed && npm run build.changed"
