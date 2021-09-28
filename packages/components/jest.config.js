@@ -1,6 +1,6 @@
-const parentJestCfg = require('../../jest.config');
+import parentJestCfg from '../../jest.config.js';
 
-module.exports = {
+export default {
     ...parentJestCfg,
     roots: ['./'],
     rootDir: './',

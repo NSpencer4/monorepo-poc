@@ -6,7 +6,12 @@
     "@types/*",
     "@testing-library/*",
     "@commitlint/*",
-    "identity-obj-proxy"
+    "identity-obj-proxy",
+    "babel-loader",
+    "css-loader",
+    "style-loader",
+    "sass-loader",
+    "ts-loader"
   ],
   "skip-missing": true,
   "ignore-bin-package": true

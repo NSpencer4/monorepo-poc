@@ -11,6 +11,7 @@
     "test": "jest --config ./jest.config.js",
     "test.output": "jest --json --outputFile=../../.storybook/.coverage.json"
   },
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "typings": "dist/index.d.ts",

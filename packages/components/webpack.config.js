@@ -1,28 +1,33 @@
-const path = require('path');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const cwp = require('clean-webpack-plugin');
+import path from 'path';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
-module.exports = {
+export default {
   mode: 'production',
   entry: './src/index.ts',
   output: {
     filename: 'index.js',
-    path: path.join(__dirname, 'dist/'),
-    publicPath: '/'
+    path: path.join(path.resolve(), 'dist/'),
+    library: {
+      type: 'umd',
+      name: 'NspencerComponents'
+    }
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
+        exclude: /(node_modules)/,
         use: [
           {
             loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-              presets: [['@babel/preset-env', { targets: { node: '8' } }]]
-            }
           },
-          'ts-loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: 'tsconfig.build.json'
+            }
+          }
         ]
       },
       {
@@ -34,10 +39,14 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom'
+  },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       async: false,
     }),
-    new cwp.CleanWebpackPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };
