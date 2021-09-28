@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.4](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.8.3...@nspencer4/components@0.8.4) (2021-09-28)
+
+
+### Bug Fixes
+
+* allowing webpack to target based on browserlist ([43ded24](https://github.com/nspencer4/monorepo-poc/commit/43ded24a1c7c61ff60c3f211c76124f5446aeeb3))
+
+
+
+
+
 ## [0.8.3](https://github.com/nspencer4/monorepo-poc/compare/@nspencer4/components@0.8.2...@nspencer4/components@0.8.3) (2021-09-28)
 
 
