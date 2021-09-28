@@ -11,14 +11,14 @@
     "webpack.config.js",
     "node_modules",
     "dist",
-    "**/*.test.tsx",
-    "**/*.test.ts",
-    "**/*.stories.tsx",
-    "**/*.stories.ts",
-    "**/*.stories.mdx",
+    "*.test.tsx",
+    "*.test.ts",
+    "*.stories.tsx",
+    "*.stories.ts",
+    "*.stories.mdx",
     "coverage",
     "jest.config.js",
-    "**/*.spec.tsx",
-    "**/*.spec.ts"
+    "*.spec.tsx",
+    "*.spec.ts"
   ]
 }
